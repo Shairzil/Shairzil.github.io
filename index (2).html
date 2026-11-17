@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Md. Shairzil Mia</title>
+<meta name="description" content="Md. Shairzil Mia — ICE graduate (BUP) and Tech Lead at NextED Advisors. I turn business problems into working digital products.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a clean light personal website — sticky nav, split hero with a profile card, then calm sections of evenly sized cards. One blue accent. */
+:root{
+  --bg:#F7F8FB;
+  --card:#FFFFFF;
+  --ink:#0F172A;
+  --muted:#5B6476;
+  --line:#E5E8EF;
+  --accent:#2457E6;
+  --accent-soft:#EAF0FF;
+  --font:"Manrope", "Segoe UI", system-ui, sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3{text-wrap:balance;letter-spacing:-.015em;line-height:1.2}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px}
+.brand i{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--accent);color:#fff;font-style:normal;font-size:13px}
+nav ul{display:flex;gap:4px;list-style:none}
+nav ul a{display:block;padding:8px 14px;border-radius:8px;color:var(--muted);font-weight:600;font-size:14.5px}
+nav ul a:hover{color:var(--ink);background:var(--bg)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:10px;font-weight:700;font-size:15px;border:1px solid var(--line);background:var(--card);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px -8px rgba(15,23,42,.25)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn svg{width:17px;height:17px}
+
+/* hero */
+.hero{padding:72px 0 64px;background:var(--card);border-bottom:1px solid var(--line)}
+.hero .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:center}
+.hello{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:6px 14px;border-radius:999px}
+.hero h1{font-size:clamp(36px,5vw,54px);font-weight:800;margin-top:18px}
+.hero h1 span{color:var(--accent)}
+.hero .lead{margin-top:18px;font-size:18px;color:var(--muted);max-width:52ch}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+
+.profile{background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:30px}
+.profile .top{display:flex;align-items:center;gap:16px}
+.avatar{flex:none;width:72px;height:72px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#fff;font-weight:800;font-size:24px;box-shadow:0 0 0 5px var(--card),0 0 0 6px var(--line)}
+.profile h3{font-size:19px;font-weight:800}
+.profile .sub{color:var(--muted);font-size:14.5px}
+.facts{list-style:none;margin-top:24px;display:grid;gap:14px}
+.facts li{display:flex;gap:12px;align-items:center;font-size:15px}
+.facts svg{flex:none;width:18px;height:18px;color:var(--accent)}
+.facts span{color:var(--muted)}
+
+/* sections */
+section{padding:80px 0 0}
+.head{margin-bottom:32px}
+.head small{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.head h2{font-size:clamp(28px,3.4vw,36px);font-weight:800;margin-top:6px}
+.head p{color:var(--muted);margin-top:8px;max-width:60ch}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px}
+
+/* strengths */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.icon{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--accent-soft);color:var(--accent);margin-bottom:16px}
+.icon svg{width:22px;height:22px}
+.card h3{font-size:18px;font-weight:800}
+.card p{color:var(--muted);margin-top:8px;font-size:15.5px}
+
+/* experience */
+.exp{display:grid;gap:20px}
+.exp .card{display:grid;grid-template-columns:200px 1fr;gap:28px}
+.exp .when{font-size:14.5px;font-weight:600;color:var(--accent)}
+.exp .org{color:var(--muted);font-size:15px;margin-top:2px}
+.exp ul{margin-top:12px;padding-left:20px;display:grid;gap:6px;color:#334155}
+.exp li::marker{color:var(--accent)}
+
+/* projects */
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.project{display:flex;flex-direction:column;transition:border-color .15s,transform .15s}
+.project:hover{border-color:#C9D5F5;transform:translateY(-2px)}
+.project .row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
+.label{font-size:12.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.status{font-size:12.5px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--bg);color:var(--muted)}
+.status.live{background:#E7F7EE;color:#167A47}
+.project p{flex:1}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.chips span{font-size:13px;font-weight:600;padding:5px 11px;border-radius:8px;background:var(--bg);border:1px solid var(--line);color:#334155}
+.result{margin-top:14px;font-size:14.5px;font-weight:700;color:var(--accent)}
+.project a.link{margin-top:14px;font-weight:700;color:var(--accent);font-size:14.5px}
+.project a.link:hover{text-decoration:underline}
+
+/* education */
+.edu{display:grid;gap:0;padding:8px 28px}
+.edu-row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;border-top:1px solid var(--line);flex-wrap:wrap}
+.edu-row:first-child{border-top:none}
+.edu-row strong{font-size:17px}
+.edu-row span{display:block;color:var(--muted);font-size:15px}
+.score{font-weight:800;font-size:15px;color:var(--accent);background:var(--accent-soft);padding:6px 14px;border-radius:999px;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* skills */
+.skills .card h3{font-size:16px;margin-bottom:4px}
+
+/* contact */
+.contact{padding:80px 0 0}
+.cta-box{background:var(--ink);color:#fff;border-radius:22px;padding:52px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.cta-box h2{font-size:clamp(28px,3.6vw,40px);font-weight:800}
+.cta-box p{color:#B6BFD0;margin-top:10px}
+.clist{display:grid;gap:12px}
+.clist a,.clist div{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 18px;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);font-weight:600;transition:background .15s}
+.clist a:hover{background:rgba(255,255,255,.13)}
+.clist small{color:#93A0B8;font-weight:500;font-size:13.5px}
+footer{padding:36px 0 44px;text-align:center;color:var(--muted);font-size:14px}
+
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;gap:36px}
+  .grid3,.grid2{grid-template-columns:1fr}
+  .exp .card{grid-template-columns:1fr;gap:6px}
+  .cta-box{grid-template-columns:1fr;padding:34px 26px}
+  nav ul{display:none}
+}
+@media (max-width:480px){
+  .hero{padding:48px 0}
+  section{padding-top:60px}
+  .card{padding:22px}
+  .edu{padding:4px 22px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top"><i>SM</i>Shairzil Mia</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+    </ul>
+    <a class="btn primary" href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="hello">Hello, I'm Shairzil</span>
+      <h1>I turn business problems into <span>digital products.</span></h1>
+      <p class="lead">ICE graduate from BUP and Tech Lead at NextED Advisors. For the past year I've led a tech team, worked closely with management, and shipped the systems our students and staff use every day.</p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">See my work</a>
+        <a class="btn" href="https://www.linkedin.com/in/md-shairzil-mia-862954409/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.2c0-1.24-.02-2.84-1.73-2.84-1.73 0-2 1.35-2 2.75V21h-4z"/></svg>LinkedIn</a>
+        <a class="btn" href="https://github.com/Shairzil" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>GitHub</a>
+      </div>
+    </div>
+
+    <aside class="profile">
+      <div class="top">
+        <div class="avatar" aria-hidden="true">SM</div>
+        <div><h3>Md. Shairzil Mia</h3><div class="sub">Tech Lead · ICE Graduate</div></div>
+      </div>
+      <ul class="facts">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg><div>NextED Advisors <span>· since Aug 2025</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5"/></svg><div>B.Sc. ICE, BUP <span>· 2022–2026</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div>Mirpur 12, Dhaka</div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><div>sshairzil@gmail.com</div></li>
+      </ul>
+    </aside>
+  </div>
+</header>
+
+<main>
+<section id="about">
+  <div class="wrap">
+    <div class="head">
+      <small>About me</small>
+      <h2>What I bring</h2>
+      <p>I sit between business and technology: I understand what a team needs, then build the system that delivers it.</p>
+    </div>
+    <div class="grid3">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 0 6 1.8 6 5.5"/></svg></div>
+        <h3>Leading people</h3>
+        <p>I coordinate developers and stakeholders, clear bottlenecks and keep work on schedule.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg></div>
+        <h3>Business thinking</h3>
+        <p>I start from the business process, map it out, and design the system around it.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13.5 6l-3 12"/></svg></div>
+        <h3>Technology &amp; data</h3>
+        <p>I build with full-stack, mobile and AI tools, and use data to make decisions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="head"><small>Experience</small><h2>Where I've worked</h2></div>
+    <div class="exp">
+      <div class="card">
+        <div><div class="when">Aug 2025 – Present</div></div>
+        <div>
+          <h3>Tech Lead / Software Developer</h3>
+          <div class="org">NextED Advisors, Dhaka · Study-abroad consultancy</div>
+          <ul>
+            <li>Led system architecture and turned the company's business logic into technical workflows.</li>
+            <li>Coordinated the dev team and stakeholders to resolve bottlenecks and meet deadlines.</li>
+            <li>Building systems to move team processes, such as lead follow-up and application tracking, off spreadsheets.</li>
+            <li>Maintained core project documentation and improved overall workflows.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <div><div class="when">University</div></div>
+        <div>
+          <h3>Assistant General Secretary</h3>
+          <div class="org">BUP InfoTech Club</div>
+          <ul>
+            <li>Organised ICT workshops and technical events, and coordinated team activities to promote learning and collaboration.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="head"><small>Projects</small><h2>Selected work</h2></div>
+    <div class="grid2">
+      <article class="card project">
+        <div class="row"><span class="label">Web &amp; mobile</span><span class="status live">● Live</span></div>
+        <h3>AI IELTS Pro</h3>
+        <p>An AI-powered IELTS learning and assessment platform. Students practise Reading, Listening, Writing and Speaking with instant automated feedback, then get course, scholarship and application support.</p>
+        <div class="chips"><span>Next.js</span><span>NestJS</span><span>PostgreSQL</span><span>Prisma</span><span>Flutter</span><span>AI</span></div>
+        <a class="link" href="https://nexted.app" target="_blank" rel="noopener">Visit nexted.app →</a>
+      </article>
+      <article class="card project">
+        <div class="row"><span class="label">Internal tool</span><span class="status">In progress</span></div>
+        <h3>NextED AI CRM</h3>
+        <p>Replaces a manual Google Sheet for Meta Ads leads. Each lead is assigned to a caller who follows a step-by-step onboarding process, so no student is missed and management sees the whole pipeline.</p>
+        <div class="chips"><span>NestJS</span><span>Next.js</span><span>PostgreSQL</span></div>
+      </article>
+      <article class="card project">
+        <div class="row"><span class="label">Desktop app</span><span class="status">Role-based</span></div>
+        <h3>Business Management Application</h3>
+        <p>A role-based system for Admin, Counsellor/Service Staff and Boss. I worked on the architecture, workflow design, database sync and Windows deployment.</p>
+        <div class="chips"><span>Java</span><span>JavaFX</span><span>Firebase</span><span>SQLite</span></div>
+      </article>
+      <article class="card project">
+        <div class="row"><span class="label">Research · NLP</span><span class="status">Research</span></div>
+        <h3>Bangla Fake News Detection</h3>
+        <p>A multi-task NLP model that detects fake vs real news, classifies the fake type and predicts the news category.</p>
+        <div class="result">≈ 0.98 F1-score on fake/real detection</div>
+        <div class="chips"><span>BanglaBERT</span><span>mBERT</span><span>XLM-R</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="head"><small>Education</small><h2>Academic background</h2></div>
+    <div class="card edu">
+      <div class="edu-row"><div><strong>B.Sc. in Information and Communication Engineering</strong><span>Bangladesh University of Professionals (BUP) · 2022–2026</span></div><div class="score">CGPA 3.12</div></div>
+      <div class="edu-row"><div><strong>HSC, Science</strong><span>Kushtia Central College · 2020</span></div><div class="score">GPA 5.00</div></div>
+      <div class="edu-row"><div><strong>SSC, Science</strong><span>Kushtia Zilla School · 2018</span></div><div class="score">GPA 4.89</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="skills">
+  <div class="wrap">
+    <div class="head"><small>Skills</small><h2>Tools I work with</h2></div>
+    <div class="grid2">
+      <div class="card"><h3>Core strengths</h3><div class="chips"><span>Team Leadership</span><span>Workflow Design</span><span>Problem Solving</span><span>Technical Documentation</span><span>API Integration</span></div></div>
+      <div class="card"><h3>Languages &amp; frameworks</h3><div class="chips"><span>Java</span><span>C/C++</span><span>JavaScript</span><span>TypeScript</span><span>PHP</span><span>Dart</span><span>Next.js</span><span>NestJS</span><span>Flutter</span></div></div>
+      <div class="card"><h3>Databases</h3><div class="chips"><span>PostgreSQL</span><span>MySQL</span><span>SQLite</span><span>Firebase</span><span>Prisma ORM</span></div></div>
+      <div class="card"><h3>Tools</h3><div class="chips"><span>Git</span><span>GitHub</span><span>Docker</span><span>Linux</span><span>Postman</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="cta-box">
+      <div>
+        <h2>Let's work together</h2>
+        <p>I'm looking for a graduate role where I can grow across business and technology. I'd be glad to hear from you.</p>
+      </div>
+      <div class="clist">
+        <div><span>sshairzil@gmail.com</span><small>Email</small></div>
+        <div><span>01645705388</span><small>Phone</small></div>
+        <a href="https://www.linkedin.com/in/md-shairzil-mia-862954409/" target="_blank" rel="noopener"><span>LinkedIn ↗</span><small>md-shairzil-mia</small></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>© 2026 Md. Shairzil Mia · Dhaka, Bangladesh</footer>
+</body>
+</html>
